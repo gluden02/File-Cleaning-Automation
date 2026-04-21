@@ -1,80 +1,114 @@
 # 📚 ReadEra → AnkiDroid Automation
 
-**Personal Project – January 2026**
+Personal Project – January 2026
 
-Python automation project designed to transform vocabulary exported from **ReadEra** into decks compatible with **AnkiDroid**, improving language learning through structured data processing.
-
----
+Python automation project designed to transform vocabulary exported from ReadEra into decks compatible with AnkiDroid, improving language learning through structured data processing.
 
 ## 🧠 Project Overview
 
-This project takes vocabulary files exported from ReadEra and automatically processes them to generate **CSV files ready for direct import into AnkiDroid**. The pipeline includes data cleaning, normalization, translation, and enrichment, applying best practices in **data preprocessing**, **automation**, and **API integration**.
+This project takes vocabulary files exported from ReadEra and automatically processes them into structured CSV files ready for direct import into AnkiDroid.
 
-The main goal is to **reduce manual effort** and **increase the quality and consistency of study material** for language learning.
+The pipeline includes:
 
----
+* data cleaning and normalization
+* duplicate handling
+* automatic translation (EN → ES)
+* dictionary-based definition lookup
+* structured export to CSV
+
+The main goal is to reduce manual effort and improve the quality and consistency of study material for language learning.
 
 ## ⚙️ Key Features
 
-* Text cleaning and normalization (lowercasing, removal of unwanted characters)
-* Duplicate removal and management of repeated terms
-* Data processing using **pandas**
-* Integration with external APIs for:
+* Text cleaning and normalization
+* Removal and annotation of duplicate terms
+* Data processing with `pandas`
+* External API integration for:
 
-  * Automatic **EN → ES translation**
-  * English definitions retrieval
-* Creation of structured datasets
-* Final export to **CSV format**, fully compatible with AnkiDroid
-
----
+  * automatic EN → ES translation
+  * English definition retrieval
+* Streamlit web app for easy use
+* CSV export fully compatible with AnkiDroid
 
 ## 🛠️ Technologies Used
 
 * Python 3
+* Streamlit
 * pandas
+* requests
+* deep-translator
 * External translation and dictionary APIs
-* Jupyter Notebook
 
----
+## 📦 Project Structure
+
+* `app.py` → Streamlit interface
+* `clean_automation.py` → cleaning, enrichment, and export logic
+* `requirements.txt` → dependencies
+* `input/` → optional folder for local CLI input files
+* `output/` → optional folder for CLI exports
 
 ## 📥 Input
 
-* Vocabulary file exported from **ReadEra**
+A vocabulary file exported from ReadEra in pipe-delimited format (`.txt` or `.csv`).
 
 ## 📤 Output
 
-* **CSV file** ready to be imported into **AnkiDroid** as a study deck
+A CSV file ready to be imported into AnkiDroid as a study deck.
 
----
+## 🚀 How to Run
 
-## 🚀 How to Use
+### Option 1: Web App (recommended)
 
-1. Export vocabulary from ReadEra
-2. Run the processing notebook
-3. Configure API credentials (if required)
-4. Generate the final CSV file
-5. Import the CSV into AnkiDroid
+Install dependencies:
 
----
+```bash
+pip install -r requirements.txt
+```
+
+Run the app:
+
+```bash
+streamlit run app.py
+```
+
+Then:
+
+1. Upload the ReadEra export file.
+2. Enter the book name and output filename.
+3. Click **Process**.
+4. Download the generated CSV file.
+
+### Option 2: Command-Line Interface (CLI)
+
+The processing logic can also be executed from the terminal using:
+
+```bash
+python clean_automation.py
+```
+
+This mode uses interactive prompts to select:
+
+* input file
+* output directory
+* output filename
+* book name
 
 ## 📌 Best Practices Applied
 
 * Automation of repetitive tasks
-* Clear separation of processing stages
+* Clear separation between interface and processing logic
 * Responsible API usage
-* Clean and structured data output for downstream consumption
-
----
+* Clean and structured output for downstream consumption
 
 ## 🔮 Possible Future Improvements
 
 * Support for additional languages
 * Output format customization
-* Command-line interface (CLI)
+* Command-line arguments instead of prompts
 * API result caching to reduce external calls
-
----
+* Progress history and processing logs
 
 ## 👤 Author
-Emanuel Etcheverry  
+
+Emanuel Etcheverry
 Technology Management Student | Python & Data Automation
